@@ -1,66 +1,50 @@
 # IS-477-Project
 Course project for IS 477
-# Data directory
+# Coffee Sales & Shop Integration Project
 
-This folder contains all data used in the project.
+## Contributors
 
-- `raw/` – **raw input data** downloaded from Kaggle using `scripts/get_data.py`
-- `processed/` – **cleaned / integrated data** produced by notebooks or scripts
-- `checksums.sha256` – SHA-256 hashes for the raw input files
-
-Raw data files are **not** stored in the Git repo; they are recreated
-programmatically.
+- Ujjwal Agarwal
 
 ---
 
-## Datasets
+## Summary
 
-This project uses two public Kaggle datasets:
+This project analyzes coffee sales and customer behavior across multiple coffee shops by integrating a transaction-level **Coffee Sales** dataset with a shop-level **Coffee Shop** dataset. The main goal is to build a **reproducible end-to-end data pipeline** that covers acquisition, storage, cleaning, integration, analysis, and visualization.
 
-1. **Coffee Sales dataset**  
-   Kaggle ID: `ahmedabbas757/coffee-sales`  
-   Saved locally as: `data/raw/coffee_sales.csv`
+The analysis focuses on understanding which products sell best, how sales vary by time of day and location, and how shop-level characteristics relate to revenue. The project follows the data lifecycle discussed in class: data are acquired programmatically from Kaggle, stored in a structured filesystem layout, cleaned and integrated using Python, analyzed via notebooks and scripts, and documented in this report.
 
-2. **Coffee Shop dataset**  
-   Kaggle ID: `jawad3664/coffee-shop`  
-   Saved locally as: `data/raw/coffee_shop.csv`
-
-The script `scripts/get_data.py` downloads both and unzips them into
-`data/raw/`.
+All work is done as an individual project. The code, data workflow, and documentation are designed so that another person can reproduce the results from scratch, starting from the public Kaggle datasets.
 
 ---
 
-## Prerequisites: Kaggle API setup
+## Research questions
 
-1. Create a Kaggle account and go to **Account → Settings → API**.
-2. Either:
+The project is guided by the following research questions:
 
-   - **Recommended (API v1.8+)**: create a new API token and set it as
-     an environment variable in your shell:
+1. **Which coffee products generate the highest sales volume and/or revenue across locations?**
+2. **How do customer preferences (e.g., drink type, size, add-ons) vary by time of day and store/location?**
+3. **Can integrated sales and shop-level data reveal which operational factors (e.g., location, product mix) are associated with higher daily sales?**
 
-     ```bash
-     export KAGGLE_API_TOKEN='KGAT_...your_token_here...'
-     ```
+---
 
-     (You can add that line to `~/.zshrc` or `~/.bashrc` to make it
-     permanent.)
+## Project structure and storage strategy
 
-   - **Legacy method**: click **“Create New Token”** under *Legacy API
-     Credentials*. This downloads `kaggle.json`. Move it to:
+This project uses a **filesystem-based, tabular storage strategy** instead of a
+relational database. All data are stored as CSV files in a structured folder
+layout inside the Git repository.
 
-     - macOS/Linux: `~/.kaggle/kaggle.json`
-     - Windows: `C:\Users\<USER>\.kaggle\kaggle.json`
+### Directory layout
 
-     On macOS/Linux you may need:
-
-     ```bash
-     chmod 600 ~/.kaggle/kaggle.json
-     ```
-
-3. From the **repository root**, create and activate a virtual
-   environment (optional but recommended) and install the Kaggle client:
-
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # or .venv\Scripts\Activate.ps1 on Windows
-   pip install kaggle
+```text
+.
+├── data/
+│   ├── raw/          # Raw input data downloaded from Kaggle (CSV, zip, xlsx)
+│   ├── processed/    # Cleaned, integrated, and derived CSV files
+│   └── README.md     # Instructions for data acquisition and integrity checks
+├── figures/          # Output plots and visualizations used in the report
+├── notebooks/        # Jupyter notebooks for profiling, integration, and EDA
+├── scripts/          # Python scripts for acquisition, cleaning, integration, etc.
+├── ProjectPlan.md    # Milestone 2 project plan
+├── StatusReport.md   # Milestone 3 status report
+└── README.md         # Final project report (this file)

@@ -1,6 +1,11 @@
 # Data directory
 
 This folder contains all data used in the project.
+This folder contains all data used in the project. 
+The project treats `data/` as the main storage location for all tabular data.
+Raw Kaggle downloads live in `data/raw/`, while cleaned and integrated CSVs
+produced by the pipeline live in `data/processed/`. All files use a consistent
+`<source>_<stage>.csv` naming convention.
 
 - `raw/` – **raw input data** downloaded from Kaggle using `scripts/get_data.py`
 - `processed/` – **cleaned / integrated data** produced by notebooks or scripts
