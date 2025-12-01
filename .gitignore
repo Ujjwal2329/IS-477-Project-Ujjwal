@@ -205,3 +205,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Project data (keep local; recreate via scripts/get_data.py)
+data/raw/*.csv
+data/raw/*.zip
+data/raw/*.xlsx
+
+# (Optional) processed data – ignore if you don't want them in Git
+data/processed/*.csv
