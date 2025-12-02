@@ -217,3 +217,6 @@ data/processed/*.csv
 # Project-specific ignores
 data/raw/
 data/*.sqlite
+
+# Snakemake working directory
+.snakemake/
