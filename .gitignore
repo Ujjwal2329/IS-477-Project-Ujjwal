@@ -213,3 +213,7 @@ data/raw/*.xlsx
 
 # (Optional) processed data – ignore if you don't want them in Git
 data/processed/*.csv
+
+# Project-specific ignores
+data/raw/
+data/*.sqlite
