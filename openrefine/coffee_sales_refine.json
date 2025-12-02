@@ -1,0 +1,18 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Trim whitespace from store_location",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "store_location",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "newColumnName": "store_location",
+    "columnInsertIndex": 0,
+    "ignoreBlank": true,
+    "repeat": false,
+    "repeatCount": 1
+  }
+]
